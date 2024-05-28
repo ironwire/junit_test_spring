@@ -1,5 +1,6 @@
 package org.yiqixue.jtest_demo;
 
+import org.junit.jupiter.api.DisplayName;
 import org.yiqixue.jtest_demo.DemoUtils;
 import org.junit.jupiter.api.Test;
 
@@ -24,5 +25,16 @@ public class DemoUtilsTest {
         String str2 = new String("hello");
 
         assertNull(demoUtils.checkNull(str1), "Str1 should be null;");
+    }
+
+    @Test
+    @DisplayName("Same or Not the Same")
+    void testSameNotSame(){
+        DemoUtils demoUtils = new DemoUtils();
+
+        String str = "yiqixue.org";
+
+        assertSame(demoUtils.getAcademy(), demoUtils.getAcademyDuplicate(), "objects should refer to the same object");
+        assertNotSame(str, demoUtils.getAcademy(), "should not refer to the same object");
     }
 }
